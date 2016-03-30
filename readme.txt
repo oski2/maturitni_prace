@@ -1,0 +1,1 @@
+ta mrdka mezi login, user a user2 je zkurvenáááá
