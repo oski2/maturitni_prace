@@ -22,7 +22,7 @@
             $userId = $row[0];
             $dbUsername = $row[1];
             $dbPassword = $row[2];
-			$dbRocnik = $row[3];
+	    $dbRocnik = $row[3];
          }
 		 
 		 
@@ -33,7 +33,7 @@
             $_SESSION['id'] = $userId;
             header('Location: user2.php');
         } elseif (($username == $dbUsername && $password == $dbPassword) && ($dbRocnik == 2)) {
-			$_SESSION['username'] = $username;
+	    $_SESSION['username'] = $username;
             $_SESSION['id'] = $userId;
             header('Location: user.php');
 		} else {
