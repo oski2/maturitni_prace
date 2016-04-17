@@ -1,13 +1,13 @@
 
 <?php
+//Stránka pro zápis vybraných seminářů do databáze
+
 	//Nastavení UTF8
 	header('Content-Type: text/html; charset=utf-8');
 	
 	//Připojení k databázi
 	include("config.php");
 			   
-
-
 
 	//Hodnoty z formuláře v user.php jsou přiřazeny proměnným
 	$value1 = $_POST['s1'];
@@ -16,7 +16,7 @@
 
 	//Student si nemůže zvolit dva stejné semináře
 	if ($value1 == $value2) {
-		die('Nemůžete si vybrat dva stejné semináře. Prosím, vraťte se na stránku výběru seminářů a zvolta si dva různé semináře: <a href="user.php">Výběr seminářů</a>');
+		die('Nemůžete si vybrat dva stejné semináře. Prosím, vraťte se na stránku výběru seminářů a zvolte si dva různé semináře: <a href="user.php">Výběr seminářů</a>');
 	}
 
 	//Proměnná pro aktualizaci řádky 

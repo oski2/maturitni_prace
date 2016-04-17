@@ -1,6 +1,5 @@
 <?php
-//Odhlášení studenta
-
+//Odhlášení administrátora
     session_start();
 	
 	session_destroy();
@@ -20,7 +19,7 @@
 	
         <p>Odhlášení proběhlo úspěšně.</p><br />
     
-        <a href="login.php">Přihlásit se</a>
+        <a href="adminlogin.php">Přihlásit se</a>
 		
     </body>
 	

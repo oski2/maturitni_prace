@@ -1,8 +1,10 @@
 <?php
 	//Stránka pro přihlašování studentů
+	//Nastavení UTF8
+	header('Content-Type: text/html; charset=utf-8');
 	
-    session_start();
-	
+	session_start();
+ 
 	//Základní funkce, spustí se když klikne na submit.
     if (isset($_POST['submit'])) {
 		
@@ -22,25 +24,22 @@
             $userId = $row[0];
             $dbUsername = $row[1];
             $dbPassword = $row[2];
-	    $dbRocnik = $row[3];
+			$dbRocnik = $row[3];
          }
 		 
-		 
-		 
+		
 		//Funkce která v připadě, že se hodnoty v databázi shodují se zadými hodnotami, pošle studenta na stránku podle toho, jaký je ročník
         if (($username == $dbUsername && $password == $dbPassword) && ($dbRocnik == 3)) {
             $_SESSION['username'] = $username;
             $_SESSION['id'] = $userId;
             header('Location: user2.php');
         } elseif (($username == $dbUsername && $password == $dbPassword) && ($dbRocnik == 2)) {
-	    $_SESSION['username'] = $username;
+			$_SESSION['username'] = $username;
             $_SESSION['id'] = $userId;
             header('Location: user.php');
 		} else {
-            echo "Incorrect username or password";
+            echo "Nesprávně zadáno jméno nebo heslo";
         }
-
-
 
     }
 ?>
@@ -49,18 +48,26 @@
 <html>
 
     <head>
+	
 		<meta charset="UTF-8">
-        <title>Login</title>
+		
+        <title>Přihlášení studenta</title>
+		
     </head>
 	
     <body>
-        <h1>Login</h1>
+	
+        <h1>Přihlášení studenta</h1>
+		
 		<!--Přihlašovací formulář-->
+		
         <form method="post" action="login.php">
 		
-            <input type="text" name="name" placeholder="Name" /><br />
-            <input type="password" name="password" placeholder="Password" /><br />
-            <input type="submit" name="submit" value="Login" />
+            <input type="text" name="name" placeholder="Uživatelské jméno" /><br />
+			
+            <input type="password" name="password" placeholder="Heslo" /><br />
+			
+            <input type="submit" name="submit" value="Přihlásit se" />
         
         </form>
     

@@ -1,13 +1,15 @@
 <?php
-	//Nastavení UTF8
+//StrÃ¡nka pro zÃ¡pis vybranÃ½ch seminÃ¡Å™Å¯ do databÃ¡ze
+
+	//NastavenÃ­ UTF8
 	header('Content-Type: text/html; charset=utf-8');
 		
-	//Pripojení k databázi	
+	//PÅ™ipojenÃ­ k databÃ¡zi	
 	include("config.php");
            
 
 
-	//Hodnoty z formuláre v user.php jsou prirazeny promennım
+	//Hodnoty z formulÃ¡re v user.php jsou prirazeny promennÃ½m
 	$value1 = $_POST['s1'];
 	$value2 = $_POST['s2'];
 	$value3 = $_POST['s3'];
@@ -15,18 +17,18 @@
 	$value5 = $_POST['blok'];
 	$value6 = $_POST['rowId'];
 
-	//Student si nemue zvolit dva stejné semináre
+	//Student si nemuÅ¾e zvolit dva stejnÃ© seminÃ¡Å™e
 	if (($value1 == $value2) or ($value2 == $value3) or ($value3 == $value4) or ($value1 == $value3) or ($value1 == $value4) or ($value2 == $value4)) {
-		die('Nemuete si vybrat dva stejné semináre. Prosím, vratte se na stránku vıberu semináru a zvolta si dva ruzné semináre: <a href="user.php">Vıber semináru</a>');
+		die('NemÅ¯Å¾ete si vybrat dva stejnÃ© seminÃ¡Å™e. ProsÃ­m, vraÅ¥te se na strÃ¡nku vÃ½bÄ›ru seminÃ¡Å™u a zvolte si dva ruznÃ© seminÃ¡Å™e: <a href="user2.php">VÃ½bÄ›r seminÃ¡Å™Å¯</a>');
 	}
 
 
-	//Promenná pro aktualizaci rádky 
+	//PromÄ›nnÃ¡ pro aktualizaci Å™Ã¡dky 
 	$sql = "UPDATE studenti SET blok='$value5', s1='$value1', s2='$value2', s3='$value3', s4='$value4' WHERE id='$value6'";
 
-	//Overení aktualizace rádky a odkazy
+	//OvÄ›renÃ­ aktualizace Å™Ã¡dky a odkazy
 	if ($conn->query($sql) === TRUE) {
-		echo('Semináre vybrány. <a href="logout.php">Odhlásit se</a>   <a href="user2.php">Zpet na vıber semináru</a>');
+		echo('SeminÃ¡Å™e vybrÃ¡ny. <a href="logout.php">OdhlÃ¡sit se</a>   <a href="user2.php">ZpÄ›t na vÃ½bÄ›r seminÃ¡Å™u</a>');
 	}
 	else {
 		echo("Error: " . $sql . "<br>" . $conn->error);
